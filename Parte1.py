@@ -31,6 +31,6 @@ class Conta():
 
 limpa_tela()
 conta_PagBank = Conta('PagBank', '3219','42931')
-conta_PagBank.depositar(200)
+conta_PagBank.depositar(400)
 conta_PagBank.sacar(300)
 print(conta_PagBank)

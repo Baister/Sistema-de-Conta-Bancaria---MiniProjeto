@@ -17,15 +17,17 @@ class Conta():
         self.saldo += deposito
 
     def sacar(self,sacado):
+        if sacado <= 0:
+            raise ValueError("Favor fazer um saque maior que 0!")
+        
         if self.saldo < sacado:
             raise ValueError("Saldo insuficiente para saque!")
         
-        if sacado <= 0:
-            raise ValueError("Favor fazer um saque maior que 0!")
         self.saldo -= sacado
 
     def __str__(self):
-        return (f'Agência: {self.agencia}\n'
+        return (f'Banco: {self.banco}\n'
+                f'Agência: {self.agencia}\n'
                 f'Conta: {self.conta}\n'
                 f'Saldo: R${self.saldo:.2f}')
 

@@ -12,11 +12,16 @@ class Conta():
 
     def depositar(self,deposito):
         if deposito <= 0:
-            raise ValueError("Favor fazer um depósito maior que zero.")
+            raise ValueError("Favor fazer um depósito maior que 0!")
         
         self.saldo += deposito
 
     def sacar(self,sacado):
+        if self.saldo < sacado:
+            raise ValueError("Saldo insuficiente para saque!")
+        
+        if sacado <= 0:
+            raise ValueError("Favor fazer um saque maior que 0!")
         self.saldo -= sacado
 
     def __str__(self):
@@ -26,6 +31,6 @@ class Conta():
 
 limpa_tela()
 conta_PagBank = Conta('PagBank', '3219','42931')
-conta_PagBank.depositar(500.21)
+conta_PagBank.depositar(200)
 conta_PagBank.sacar(300)
 print(conta_PagBank)
